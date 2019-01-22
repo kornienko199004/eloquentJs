@@ -1,8 +1,8 @@
-class Robot {
-  constructor(name) {
-    this.name = name;
-  }
-}
+import VillageState from './modules/village';
+import { runRobot, randomRobot, buildGraph } from './modules/logic';
+import data from './modules/data';
 
-const robot1 = new Robot('Arkadiy');
-console.log(robot1.name);
+const roadGraph = buildGraph(data);
+const village = VillageState.random(roadGraph);
+
+runRobot(village, randomRobot, roadGraph);
